@@ -2,7 +2,7 @@
 
 ## 畫面呈現
 
-<img src="./screen-shot.png" style="height:50rem">
+<img src="./screen-shot.gif" style="height:50rem">
 
 ## 安裝
 
