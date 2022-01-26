@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFrame-Windo</title>
+    <script>
+        (function (w, c, p, s, e) {
+            p = new Promise(function (resolve) {
+                w[c] = {
+                    createFile: function () {
+                        if (!s) {
+                            s = document.createElement('script');
+                            s.src = './lib/iframe-window.js';
+                            s.async = 1;
+                            e = document.getElementsByTagName('script')[0];
+                            e.parentNode.insertBefore(s, e);
+                            s.onload = function () {
+                                resolve(w[c]);
+                            };
+                        }
+                        return p;
+                    }
+                }
+            })
+        })(window, 'IFrameWindow')
+
+        IFrameWindow.createFile();
+
+        function openWindow() {
+            IFrame_Window.createWindow(
+                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7497911.175624379!2d115.58342341601062!3d23.42113601706629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ef3065c07572f%3A0xe711f004bf9c5469!2z5Y-w54Gj!5e0!3m2!1szh-TW!2stw!4v1643186902401!5m2!1szh-TW!2stw', // url
+                600, // 寬度。單位 px
+                450); // 高度。單位 px
+
+        }
+
+        function closeWindow() {
+            IFrame_Window.closeWindow();
+        }
+    </script>
+</head>
+
+<body>
+    <h1> IFrame-Windo Demo</h1>
+    <button onclick="openWindow()">OPEN</button>
+    <button onclick="closeWindow()">CLOSE</button>
+</body>
+
+</html>
